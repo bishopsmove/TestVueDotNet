@@ -1,0 +1,63 @@
+{
+    "data": {
+        "connectionString": "",
+        "schemaName": ""
+    },
+    "kestrel": {
+        "endpoints": {
+            "localhost": {
+                "address": "localhost",
+                "port": 80
+            }
+        }
+    },
+    "server": {
+        "areas": [
+            "admin"
+        ],
+        "antiForgery": {
+            "cookieName": "XSRF-COOKIE",
+            "headerName": "X-XSRF-TOKEN",
+            "clientName": "XSRF-TOKEN",
+            "requireSsl": true
+        },
+        "defaultCulture": "en",
+        "defaultTimeZone": "AUS Eastern Standard Time",
+        "webroot": "./wwwroot"
+    },
+    "service": {
+        "authenticationProviders": [
+            {
+                "clientId": "",
+                "profileUri": "https://www.googleapis.com/oauth2/v3/tokeninfo?access_token={0}",
+                "providerId": "GOOGLE",
+                "revokeUri": "https://accounts.google.com/o/oauth2/revoke?token={0}"
+            },
+            {
+                "clientId": "",
+                "profileUri": "",
+                "providerId": "MICROSOFT",
+                "revokeUri": ""
+            }
+        ],
+        "claimsNamespace": "//testvuedotnet/claims/",
+        "tokenProvider": {
+            "tokenExpiration": "10",
+            "tokenSecurityKey": "startrekkingacrosstheuniverseonthestarshipenterpriseundercaptainkirk",
+            "tokenSecurityAlgorithm": "HS256",
+            "tokenIssuer": "http://TestVueDotNet.org.au",
+            "tokenAudience": "TestVueDotNetapp"
+        }
+    },
+    "Logging": {
+        "IncludeScopes": true,
+        "Console": {
+            "LogLevel": {
+                "Default": "Warning"
+            }
+        },
+        "LogLevel": {
+            "Default": "Error"
+        }
+    }
+}

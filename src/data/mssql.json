@@ -1,0 +1,6 @@
+{
+    "data": {
+        "connectionString": "Server=.;Database=TestVueDotNetDev;Trusted_Connection=True;",
+        "schemaName": ""
+    }
+}

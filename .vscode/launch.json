@@ -1,0 +1,34 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET Core (Development)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "dev build",
+            "program": "${workspaceRoot}/src/server/bin/Debug/netcoreapp2.1/TestVueDotNet.UI.dll",
+            "args": [],
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "cwd": "${workspaceRoot}/src/server",
+            "externalConsole": false,
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": ".NET Core (Production)",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceRoot}/dist/TestVueDotNet.UI.dll",
+            "args": [],
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Production"
+            },
+            "cwd": "${workspaceRoot}/dist",
+            "externalConsole": true,
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        }
+    ]
+}

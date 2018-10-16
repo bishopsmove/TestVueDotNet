@@ -1,0 +1,90 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "dev build",
+            "command": "cmd",
+            "type": "shell",
+            "args": [
+                "/C",
+                "dotnet",
+                "build",
+                "${workspaceRoot}/src/server/server.csproj"
+            ],
+            "group": "build",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test dotnet",
+            "command": "cmd",
+            "type": "shell",
+            "args": [
+                "/C",
+                "dotnet",
+                "test",
+                "${workspaceRoot}/test/test-common/test-common.csproj"
+            ],
+            "group": "test",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test ui",
+            "command": "node_modules/.bin/mocha-webpack --require jsdom-global/register --webpack-config ./webpack.config.js --glob \"*.spec.js\" *.ts",
+            "type": "shell",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "options": {
+                "cwd": "${workspaceRoot}/test/ui"
+            },
+            "group": "test"
+        },
+        {
+            "label": "test watch ui",
+            "command": "node_modules/.bin/mocha-webpack --watch --require jsdom-global/register --webpack-config ./webpack.config.js --glob \"*.spec.js\" *.ts",
+            "type": "shell",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "options": {
+                "cwd": "${workspaceRoot}/test/ui"
+            },
+            "group": "test"
+        },
+        {
+            "label": "dev build ui",
+            "command": "webpack",
+            "type": "shell",
+            "args": [
+                "--config",
+                "webpack.config.js"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "options": {
+                "cwd": "${workspaceRoot}/src/ui"
+            },
+            "group": "build"
+        },
+        {
+            "label": "publish",
+            "command": "cmd /C powershell Set-ExecutionPolicy -ExecutionPolicy Bypass | powershell ${workspaceRoot}/build/production.ps1",
+            "type": "shell",
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceRoot}/src/ui"
+            },
+            "group": "build"
+        }
+    ]
+}

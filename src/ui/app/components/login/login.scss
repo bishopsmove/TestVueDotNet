@@ -1,0 +1,22 @@
+@import "../../styles/variables";
+
+.login-provider {
+
+    .btn {
+        min-width: 4em;
+    }
+
+    .card {
+        border: 0;
+        border-radius: 0;
+    }
+
+    .external-provider-text {
+        font-family: $headings-font-family;
+        color: theme-color("secondary");
+        margin-left: 0.5em;
+        text-transform: lowercase;
+        font-variant: normal;
+        font-size: 1.2em;
+    }
+}
